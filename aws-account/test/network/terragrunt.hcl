@@ -69,7 +69,7 @@ inputs = {
     }
     route_tables            = ["public", "private"]
     enable_internet_gateway = true
-    enable_nat_gateway      = false
+    enable_nat_gateway      = true
     nat_gw_subnet           = "public-subnet-1a"
     tags                    = merge(local.tags, local.common_vars.tags, local.environment_vars.tags)
 
