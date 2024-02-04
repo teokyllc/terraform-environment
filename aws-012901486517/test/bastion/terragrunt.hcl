@@ -15,7 +15,7 @@ dependency "network" {
 }
 
 terraform {
-  source = "github.com/teokyllc/terraform-aws-ec2"
+  source = "github.com/teokyllc/terraform-aws-ec2?ref=1.0"
 }
 
 inputs = {
