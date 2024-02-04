@@ -68,11 +68,10 @@ inputs = {
   monitoring                              = false
   user_data_replace_on_change             = false
   network_interface_delete_on_termination = true
-  volume_size                             = 20vv 
+  volume_size                             = 20
   volume_type                             = "gp3"
   volume_delete_on_termination            = true
   volume_encrypted                        = true
-  kms_key_id                              = null
   user_data                               = <<EOF
 #! /bin/bash
 sudo apt-get update
