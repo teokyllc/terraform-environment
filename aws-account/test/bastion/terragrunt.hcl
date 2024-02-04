@@ -66,11 +66,9 @@ inputs = {
   attach_eip                              = false
   key_name                                = "ataylor-test"
   monitoring                              = false
-ireguard-install.sh wireguard.sh
-EOF
   user_data_replace_on_change             = false
   network_interface_delete_on_termination = true
-  volume_size                             = 20
+  volume_size                             = 20vv 
   volume_type                             = "gp3"
   volume_delete_on_termination            = true
   volume_encrypted                        = true
