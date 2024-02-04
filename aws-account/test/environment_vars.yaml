@@ -1,3 +1,7 @@
 environment: "test"
 tags:
   environment: "test"
+domain_name: "example.internal"
+elk_namespace: "elk-stack"
+elk_apps_version: "8.12.0"
+elasticsearch_disable_self_signed_tls: false
