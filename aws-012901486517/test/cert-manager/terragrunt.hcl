@@ -15,7 +15,7 @@ dependency "eks" {
 }
 
 terraform {
-  source = "github.com/teokyllc/terraform-kubernetes-istio?ref=1.0"
+  source = "github.com/teokyllc/terraform-kubernetes-cert-manager"
 }
 
 inputs = {

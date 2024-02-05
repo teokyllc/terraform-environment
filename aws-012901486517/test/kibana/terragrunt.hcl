@@ -21,7 +21,6 @@ dependency "elastic-operator" {
 
 dependency "istio" {
   config_path  = "../istio"
-  skip_outputs = true
 }
 
 terraform {
@@ -31,18 +30,18 @@ terraform {
 inputs = {
   deploy_kibana                         = true
   kibana_name                           = "kb"
-  kibana_namespace                      = local.common_vars.elk_namespace
-  kibana_public_base_url                = "kibana.example.com"
-  kibana_version                        = local.common_vars.elk_apps_version
+  kibana_namespace                      = local.environment_vars.elk_namespace
+  kibana_version                        = local.environment_vars.elk_apps_version
   elasticsearch_name                    = "es"
-  elasticsearch_namespace               = local.common_vars.elk_namespace
-  elasticsearch_disable_self_signed_tls = local.common_vars.elasticsearch_disable_self_signed_tls
-  istio_ingress_gateway_name            = "ingress-gateway"
-  istio_dns_names                       = ["elasticsearch.example.com", "kibana.example.com", "logstash.example.com"]
-  istio_tls_secret_name                 = "letsencrypt"
+  elasticsearch_namespace               = local.environment_vars.elk_namespace
+  elasticsearch_disable_self_signed_tls = local.environment_vars.elasticsearch_disable_self_signed_tls
+  enable_istio                          = true
+  istio_ingress_gateway_name            = dependency.istio.outputs.ingress_gateway_istio_label
+  istio_dns_names                       = ["elasticsearch.${local.environment_vars.domain_name}", "kibana.${local.environment_vars.domain_name}", "logstash.${local.environment_vars.domain_name}"]
+  istio_tls_secret_name                 = "istio-ingressgateway-certificate"
   elasticsearch_dns_name                = "elasticsearch.${local.environment_vars.domain_name}"
-  kibana_dns_name                       = "kibana.${local.common_vars.elk_namespace}"
-  logstash_dns_name                     = "logstash.${local.common_vars.elk_namespace}"
+  kibana_dns_name                       = "kibana.${local.environment_vars.elk_namespace}"
+  logstash_dns_name                     = "logstash.${local.environment_vars.elk_namespace}"
 }
 
 generate "provider" {

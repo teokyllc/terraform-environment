@@ -26,10 +26,10 @@ terraform {
 inputs = {
   deploy_elasticsearch                      = true
   create_elasticsearch_namespace            = true
-  elasticsearch_namespace                   = local.common_vars.elk_namespace
+  elasticsearch_namespace                   = local.environment_vars.elk_namespace
   elasticsearch_name                        = "es"
-  elasticsearch_version                     = local.common_vars.elk_apps_version
-  elasticsearch_disable_self_signed_tls     = local.common_vars.elasticsearch_disable_self_signed_tls
+  elasticsearch_version                     = local.environment_vars.elk_apps_version
+  elasticsearch_disable_self_signed_tls     = local.environment_vars.elasticsearch_disable_self_signed_tls
   elasticsearch_master_node_set_count       = "1"
   elasticsearch_data_node_set_count         = "1"
   elasticsearch_master_role_disk_size_in_gb = "10"
