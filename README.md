@@ -2,8 +2,6 @@
 
 This is a Terraform environment project for a single AWS account.  Snake casing is the standard for Terraform variables and resource naming.<br>
 
-![The Terraform Stack](stack.jpg?raw=true 'The Terraform Stack')<br>
-
 ## What does Terraform do?
 
 Terraform evaluates a set of Terraform configuration to determine the desired state of all the resources it declares, then compares that desired state to the real infrastructure objects being managed with the current working directory. It uses state data to determine which real objects correspond to which declared resources, and checks the current state of each resource using the relevant infrastructure provider's API. Once it has determined the difference between the current state and the desired state, terraform plans presents a description of the changes necessary to achieve the desired state. Terraform applies actually carries out the planned changes to each resource using the relevant infrastructure provider's API.
